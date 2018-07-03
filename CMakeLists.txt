@@ -31,13 +31,5 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-#############################################################
-#
-#	Find Qt
-#
-find_package(Qt5 COMPONENTS Core Gui Widgets)
-
-set(CMAKE_AUTOMOC ON)
-
 add_subdirectory(example)
 add_subdirectory(src)

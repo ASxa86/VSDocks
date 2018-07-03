@@ -1,7 +1,16 @@
 project(VSDocks)
 
-add_library(${PROJECT_NAME} SHARED "")
-target_compile_definitions(${PROJECT_NAME} PUBLIC -D${PROJECT_NAME}_Export)
+#############################################################
+#
+#	Find Qt
+#
+find_package(Qt5 CONFIG REQUIRED Core Gui Widgets)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+
+add_library(${PROJECT_NAME} SHARED "") 
+target_compile_definitions(${PROJECT_NAME} PRIVATE -D${PROJECT_NAME}_Export)
 
 target_sources(${PROJECT_NAME} PRIVATE
 	VSDockManager.h
@@ -14,7 +23,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 	VSDockWidget.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(${PROJECT_NAME} PUBLIC
 	Qt5::Core
 	Qt5::Gui
 	Qt5::Widgets

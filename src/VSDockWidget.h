@@ -1,6 +1,15 @@
 #pragma once
 
+#ifdef WIN32
+#pragma warning(push, 0)
+#endif
+
 #include <QtWidgets/QDockWidget>
+
+#ifdef WIN32
+#pragma warning(pop)
+#endif
+
 #include "Export.h"
 
 namespace vsdocks
